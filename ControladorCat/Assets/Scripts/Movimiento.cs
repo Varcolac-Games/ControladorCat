@@ -1,21 +1,25 @@
-using UnityEngine
+using UnityEngine;
 
-public class Controller : Monobeahivor
+namespace Iso
 {
-	public float speed = 3;
-	RigiBbody rb;
-	
-	void Start()
+	public class Controller : MonoBehaviour
 	{
-		rb = GetComponent<RigiBbody>();
-	}
-	
-	void Update()
-	{
-		Vector3 input = New Vector3(InputManager.Instance.Move.x, 0f , InputManager.Instance.Move.y)
-		input.Normalized();
-		input *= speed * Time.Deltatime();
-		rb.velocity(input.x, rb.velocity.y,input.z)
-		
+		public float speed = 3;
+		Rigidbody rb;
+
+		void Start()
+		{
+            rb = GetComponent<Rigidbody>();
+		}
+
+		void Update()
+		{
+			Vector3 input = (Vector3.right * InputManager.Instance.MoveInput.x + Vector3.forward * InputManager.Instance.MoveInput.y).normalized * speed * Time.deltaTime;
+			
+			//input.Normalize();
+			//input *= speed * Time.deltaTime;
+			rb.velocity = new Vector3(input.x, rb.velocity.y, input.z);
+
+		}
 	}
 }
