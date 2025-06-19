@@ -1,24 +1,22 @@
-using cakeslice;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using cakeslice;
 
-
-
-public class VolumenAnimatorInteractuable : MonoBehaviour, IInteractable
+public class VolumenLigthInteractuable : MonoBehaviour , IInteractable
 {
-    Animator animator;
     Outline outline;
+    public GameObject desactivateObject;
+
     public void Action()
     {
-        animator.SetTrigger("action");
+        desactivateObject.SetActive(!desactivateObject.activeSelf);
     }
 
 
     private void Start()
     {
-        animator = GetComponent<Animator>();
-        outline = GetComponent<Outline>();
+        outline = GetComponentInChildren<Outline>();
         outline.eraseRenderer = true;
     }
 
