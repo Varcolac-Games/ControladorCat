@@ -5,7 +5,10 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Test_Integrate.unity
     guid: 5c497515e987a374094fad09180368e6
+  - enabled: 1
+    path: Assets/Scenes/Damian/TPControllerPc.unity
+    guid: 616900265b7dd2b47ba9fc67a525acb7
   m_configObjects: {}

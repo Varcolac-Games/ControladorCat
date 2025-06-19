@@ -20,6 +20,7 @@ public class InputReader : MonoBehaviour
 
     private void MovementInput()
     {
-        movement = playerInput.actions["Move"].ReadValue<Vector3>();
+        Vector2 movementVector = playerInput.actions["Move"].ReadValue<Vector2>();
+        movement = new Vector3(movementVector.x, 0f, movementVector.y);
     }
 }
