@@ -17,7 +17,7 @@
                 {
                     "name": "Look",
                     "type": "Value",
-                    "id": "93722920-01d0-4a64-acd7-64fb91d25c2d",
+                    "id": "9d413da9-c468-444d-831c-4e2834c1a3d5",
                     "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": "",
@@ -93,33 +93,22 @@
                 },
                 {
                     "name": "",
-                    "id": "20bb5fac-c26a-400e-9588-52d8335e32a7",
-                    "path": "<Gamepad>/leftStick",
+                    "id": "db168bc3-c8f3-4068-a788-35896e3b69e8",
+                    "path": "<Touchscreen>/position",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Touch",
+                    "groups": "Tocuh",
                     "action": "Move",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
-                    "id": "4c6bfd52-0495-4368-9453-4f0cf6d1b61e",
-                    "path": "<Touchscreen>/delta",
+                    "id": "f594fb51-5657-4832-b4c4-d888bc5387a7",
+                    "path": "<Pointer>/delta",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Touch",
-                    "action": "Look",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "706cf4cf-d3c9-4b5c-8781-58a78e17169d",
-                    "path": "<Gamepad>/rightStick",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Joystick",
+                    "groups": "Tocuh",
                     "action": "Look",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -156,8 +145,8 @@
             ]
         },
         {
-            "name": "Touch",
-            "bindingGroup": "Touch",
+            "name": "Tocuh",
+            "bindingGroup": "Tocuh",
             "devices": [
                 {
                     "devicePath": "<Touchscreen>",

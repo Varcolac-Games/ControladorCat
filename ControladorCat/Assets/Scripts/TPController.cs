@@ -37,6 +37,7 @@ public class TPController : MonoBehaviour
 
     private void Movement()
     {
+        Debug.Log($"Input: {inputReader.Movement}");
         Vector3 viewDir = playerTransform.position - new Vector3(Camera.main.transform.position.x, playerTransform.position.y, Camera.main.transform.position.z);
         orientation.forward = viewDir.normalized;
         Vector3 inputs = inputReader.Movement;
