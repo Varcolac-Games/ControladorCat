@@ -12,9 +12,15 @@ namespace Iso
         {
             if (InputManager.Instance.InteractPressed)
             {
-                currentInteractable?.Action();
+                Action();
             }
-    }
+        }
+
+        public void Action()
+        {
+            if (currentInteractable != null)
+                currentInteractable?.Action();
+        }
 
         private void OnTriggerEnter(Collider other)
         {

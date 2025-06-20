@@ -8,7 +8,7 @@ public class BuildScript
     // Define la escena a incluir en el build. Podrías hacer esto más dinámico si tuvieras múltiples escenas.
     private static string[] GetScenes()
     {
-        return new string[] { "Assets/Scenes/Test_Integrate.unity" };
+        return new string[] { "Assets/Scenes/Interior_Analog_Scene.unity" };
     }
 
     // --- Build para Windows ---
