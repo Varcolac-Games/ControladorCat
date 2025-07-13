@@ -37,9 +37,18 @@ public partial class @Player: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": true
                 },
                 {
-                    ""name"": ""Look"",
+                    ""name"": ""LookMouse"",
                     ""type"": ""Value"",
-                    ""id"": ""9d413da9-c468-444d-831c-4e2834c1a3d5"",
+                    ""id"": ""2c5d9122-613f-4375-9c8e-14bfbec4620f"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""LookJoystick"",
+                    ""type"": ""Value"",
+                    ""id"": ""ab4a814d-5b0c-4aa4-8dc8-2f6a517494b0"",
                     ""expectedControlType"": ""Vector2"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -53,7 +62,7 @@ public partial class @Player: IInputActionCollection2, IDisposable
                     ""path"": ""<Gamepad>/leftStick"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Joystick"",
+                    ""groups"": ""Gamepad"",
                     ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -75,7 +84,7 @@ public partial class @Player: IInputActionCollection2, IDisposable
                     ""path"": ""<Keyboard>/w"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""KeyboardAndMouse"",
                     ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
@@ -86,7 +95,7 @@ public partial class @Player: IInputActionCollection2, IDisposable
                     ""path"": ""<Keyboard>/s"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""KeyboardAndMouse"",
                     ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
@@ -97,7 +106,7 @@ public partial class @Player: IInputActionCollection2, IDisposable
                     ""path"": ""<Keyboard>/a"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""KeyboardAndMouse"",
                     ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
@@ -108,19 +117,30 @@ public partial class @Player: IInputActionCollection2, IDisposable
                     ""path"": ""<Keyboard>/d"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""KeyboardAndMouse"",
                     ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
                 {
                     ""name"": """",
-                    ""id"": ""f594fb51-5657-4832-b4c4-d888bc5387a7"",
+                    ""id"": ""b07cc46d-1cd5-4952-ac8b-7485ed51dcab"",
+                    ""path"": ""<Mouse>/delta"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""KeyboardAndMouse"",
+                    ""action"": ""LookMouse"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""de45dd01-e4fa-4f64-863a-e5baba863b7f"",
                     ""path"": ""<Gamepad>/rightStick"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Joystick"",
-                    ""action"": ""Look"",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""LookJoystick"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -129,8 +149,8 @@ public partial class @Player: IInputActionCollection2, IDisposable
     ],
     ""controlSchemes"": [
         {
-            ""name"": ""Keyboard and mouse"",
-            ""bindingGroup"": ""Keyboard and mouse"",
+            ""name"": ""KeyboardAndMouse"",
+            ""bindingGroup"": ""KeyboardAndMouse"",
             ""devices"": [
                 {
                     ""devicePath"": ""<Keyboard>"",
@@ -145,8 +165,8 @@ public partial class @Player: IInputActionCollection2, IDisposable
             ]
         },
         {
-            ""name"": ""Joystick"",
-            ""bindingGroup"": ""Joystick"",
+            ""name"": ""Gamepad"",
+            ""bindingGroup"": ""Gamepad"",
             ""devices"": [
                 {
                     ""devicePath"": ""<Gamepad>"",
@@ -171,7 +191,8 @@ public partial class @Player: IInputActionCollection2, IDisposable
         // PlayerMain
         m_PlayerMain = asset.FindActionMap("PlayerMain", throwIfNotFound: true);
         m_PlayerMain_Move = m_PlayerMain.FindAction("Move", throwIfNotFound: true);
-        m_PlayerMain_Look = m_PlayerMain.FindAction("Look", throwIfNotFound: true);
+        m_PlayerMain_LookMouse = m_PlayerMain.FindAction("LookMouse", throwIfNotFound: true);
+        m_PlayerMain_LookJoystick = m_PlayerMain.FindAction("LookJoystick", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -234,13 +255,15 @@ public partial class @Player: IInputActionCollection2, IDisposable
     private readonly InputActionMap m_PlayerMain;
     private List<IPlayerMainActions> m_PlayerMainActionsCallbackInterfaces = new List<IPlayerMainActions>();
     private readonly InputAction m_PlayerMain_Move;
-    private readonly InputAction m_PlayerMain_Look;
+    private readonly InputAction m_PlayerMain_LookMouse;
+    private readonly InputAction m_PlayerMain_LookJoystick;
     public struct PlayerMainActions
     {
         private @Player m_Wrapper;
         public PlayerMainActions(@Player wrapper) { m_Wrapper = wrapper; }
         public InputAction @Move => m_Wrapper.m_PlayerMain_Move;
-        public InputAction @Look => m_Wrapper.m_PlayerMain_Look;
+        public InputAction @LookMouse => m_Wrapper.m_PlayerMain_LookMouse;
+        public InputAction @LookJoystick => m_Wrapper.m_PlayerMain_LookJoystick;
         public InputActionMap Get() { return m_Wrapper.m_PlayerMain; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -253,9 +276,12 @@ public partial class @Player: IInputActionCollection2, IDisposable
             @Move.started += instance.OnMove;
             @Move.performed += instance.OnMove;
             @Move.canceled += instance.OnMove;
-            @Look.started += instance.OnLook;
-            @Look.performed += instance.OnLook;
-            @Look.canceled += instance.OnLook;
+            @LookMouse.started += instance.OnLookMouse;
+            @LookMouse.performed += instance.OnLookMouse;
+            @LookMouse.canceled += instance.OnLookMouse;
+            @LookJoystick.started += instance.OnLookJoystick;
+            @LookJoystick.performed += instance.OnLookJoystick;
+            @LookJoystick.canceled += instance.OnLookJoystick;
         }
 
         private void UnregisterCallbacks(IPlayerMainActions instance)
@@ -263,9 +289,12 @@ public partial class @Player: IInputActionCollection2, IDisposable
             @Move.started -= instance.OnMove;
             @Move.performed -= instance.OnMove;
             @Move.canceled -= instance.OnMove;
-            @Look.started -= instance.OnLook;
-            @Look.performed -= instance.OnLook;
-            @Look.canceled -= instance.OnLook;
+            @LookMouse.started -= instance.OnLookMouse;
+            @LookMouse.performed -= instance.OnLookMouse;
+            @LookMouse.canceled -= instance.OnLookMouse;
+            @LookJoystick.started -= instance.OnLookJoystick;
+            @LookJoystick.performed -= instance.OnLookJoystick;
+            @LookJoystick.canceled -= instance.OnLookJoystick;
         }
 
         public void RemoveCallbacks(IPlayerMainActions instance)
@@ -283,22 +312,22 @@ public partial class @Player: IInputActionCollection2, IDisposable
         }
     }
     public PlayerMainActions @PlayerMain => new PlayerMainActions(this);
-    private int m_KeyboardandmouseSchemeIndex = -1;
-    public InputControlScheme KeyboardandmouseScheme
+    private int m_KeyboardAndMouseSchemeIndex = -1;
+    public InputControlScheme KeyboardAndMouseScheme
     {
         get
         {
-            if (m_KeyboardandmouseSchemeIndex == -1) m_KeyboardandmouseSchemeIndex = asset.FindControlSchemeIndex("Keyboard and mouse");
-            return asset.controlSchemes[m_KeyboardandmouseSchemeIndex];
+            if (m_KeyboardAndMouseSchemeIndex == -1) m_KeyboardAndMouseSchemeIndex = asset.FindControlSchemeIndex("KeyboardAndMouse");
+            return asset.controlSchemes[m_KeyboardAndMouseSchemeIndex];
         }
     }
-    private int m_JoystickSchemeIndex = -1;
-    public InputControlScheme JoystickScheme
+    private int m_GamepadSchemeIndex = -1;
+    public InputControlScheme GamepadScheme
     {
         get
         {
-            if (m_JoystickSchemeIndex == -1) m_JoystickSchemeIndex = asset.FindControlSchemeIndex("Joystick");
-            return asset.controlSchemes[m_JoystickSchemeIndex];
+            if (m_GamepadSchemeIndex == -1) m_GamepadSchemeIndex = asset.FindControlSchemeIndex("Gamepad");
+            return asset.controlSchemes[m_GamepadSchemeIndex];
         }
     }
     private int m_TocuhSchemeIndex = -1;
@@ -313,6 +342,7 @@ public partial class @Player: IInputActionCollection2, IDisposable
     public interface IPlayerMainActions
     {
         void OnMove(InputAction.CallbackContext context);
-        void OnLook(InputAction.CallbackContext context);
+        void OnLookMouse(InputAction.CallbackContext context);
+        void OnLookJoystick(InputAction.CallbackContext context);
     }
 }
