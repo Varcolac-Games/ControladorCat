@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.Windows;
 
 public class TPController : MonoBehaviour
 {
@@ -37,21 +36,17 @@ public class TPController : MonoBehaviour
 
     private void Movement()
     {
-        Debug.Log($"Input: {inputReader.Movement}");
         Vector3 viewDir = playerTransform.position - new Vector3(Camera.main.transform.position.x, playerTransform.position.y, Camera.main.transform.position.z);
         orientation.forward = viewDir.normalized;
         Vector3 inputs = inputReader.Movement;
         Vector3 inputDir = orientation.forward * inputs.z + orientation.right * inputs.x;
+        float moveAmount = inputDir.magnitude;
+        anim.SetFloat("Speed", moveAmount);
         if (inputDir != Vector3.zero)
         {
-            anim.SetFloat("Speed", 1f);
             playerObj.forward = Vector3.Slerp(playerObj.forward, inputDir.normalized, Time.fixedDeltaTime * rotationSpeed);
             Vector3 moveVelocity = inputDir.normalized * speedMovement;
             rbPlayer.velocity = new Vector3(moveVelocity.x, rbPlayer.velocity.y, moveVelocity.z);
-        }
-        else
-        {
-            anim.SetFloat("Speed", 0f);
         }
     }
 }

@@ -2,7 +2,7 @@
     "name": "Player",
     "maps": [
         {
-            "name": "Player",
+            "name": "PlayerMain",
             "id": "68157d06-76b4-4e13-b186-07495d406da6",
             "actions": [
                 {
@@ -93,22 +93,11 @@
                 },
                 {
                     "name": "",
-                    "id": "db168bc3-c8f3-4068-a788-35896e3b69e8",
-                    "path": "<Touchscreen>/position",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Tocuh",
-                    "action": "Move",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "f594fb51-5657-4832-b4c4-d888bc5387a7",
-                    "path": "<Pointer>/delta",
+                    "path": "<Gamepad>/rightStick",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Tocuh",
+                    "groups": "Joystick",
                     "action": "Look",
                     "isComposite": false,
                     "isPartOfComposite": false
