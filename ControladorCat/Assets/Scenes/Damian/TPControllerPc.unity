@@ -4766,7 +4766,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1136961041}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.023333753, y: -0.000000029794208, z: -6.9539996e-10, w: 0.9997277}
+  m_LocalRotation: {x: -0.023333754, y: -0.000000029794208, z: -6.954e-10, w: 0.9997277}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -6922,7 +6922,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1701018069}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.0051933955, y: -0.00000002980192, z: -1.5477525e-10, w: 0.9999865}
+  m_LocalRotation: {x: -0.005193395, y: -0.000000030080713, z: -1.5622313e-10, w: 0.9999865}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -7479,21 +7479,21 @@ MonoBehaviour:
   m_DynamicOriginRange: 100
   m_ControlPath: <Gamepad>/leftStick
   m_Behaviour: 0
-  m_UseIsolatedInputActions: 0
+  m_UseIsolatedInputActions: 1
   m_PointerDownAction:
-    m_Name: 
+    m_Name: Pointer Down
     m_Type: 0
     m_ExpectedControlType: 
-    m_Id: 
+    m_Id: 5ef7b4a4-a5a8-440d-89ff-29c5a884d1f2
     m_Processors: 
     m_Interactions: 
     m_SingletonActionBindings: []
     m_Flags: 0
   m_PointerMoveAction:
-    m_Name: 
+    m_Name: Pointer Move
     m_Type: 0
     m_ExpectedControlType: 
-    m_Id: 
+    m_Id: b5b94254-485e-4c40-9cc2-c4cd635966cc
     m_Processors: 
     m_Interactions: 
     m_SingletonActionBindings: []
