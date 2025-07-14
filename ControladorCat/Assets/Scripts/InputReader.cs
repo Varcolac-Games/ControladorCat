@@ -13,11 +13,6 @@ public class InputReader : MonoBehaviour
         playerInput = new Player();
     }
 
-    private void Start()
-    {
-        GetComponent<PlayerInput>().SwitchCurrentControlScheme("Gamepad", Gamepad.current);
-    }
-
     private void OnEnable()
     {
         playerInput.Enable();
@@ -33,19 +28,5 @@ public class InputReader : MonoBehaviour
         Vector2 movementInput = playerInput.PlayerMain.Move.ReadValue<Vector2>();
         Movement = new Vector3(movementInput.x, 0f, movementInput.y);
     }
-    //private void Awake()
-    //{
-    //    playerInput = GetComponent<PlayerInput>();
-    //}
-
-    //private void Update()
-    //{
-    //    MovementInput();
-    //}
-
-    //private void MovementInput()
-    //{
-    //    Vector2 movementVector = playerInput.actions["Move"].ReadValue<Vector2>();
-    //    movement = new Vector3(movementVector.x, 0f, movementVector.y);
-    //}
+    
 }
