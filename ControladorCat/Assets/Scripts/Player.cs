@@ -149,8 +149,8 @@ public partial class @Player: IInputActionCollection2, IDisposable
     ],
     ""controlSchemes"": [
         {
-            ""name"": ""KeyboardAndMouse"",
-            ""bindingGroup"": ""KeyboardAndMouse"",
+            ""name"": ""Keyboard and mouse"",
+            ""bindingGroup"": ""Keyboard and mouse"",
             ""devices"": [
                 {
                     ""devicePath"": ""<Keyboard>"",
@@ -312,13 +312,13 @@ public partial class @Player: IInputActionCollection2, IDisposable
         }
     }
     public PlayerMainActions @PlayerMain => new PlayerMainActions(this);
-    private int m_KeyboardAndMouseSchemeIndex = -1;
-    public InputControlScheme KeyboardAndMouseScheme
+    private int m_KeyboardandmouseSchemeIndex = -1;
+    public InputControlScheme KeyboardandmouseScheme
     {
         get
         {
-            if (m_KeyboardAndMouseSchemeIndex == -1) m_KeyboardAndMouseSchemeIndex = asset.FindControlSchemeIndex("KeyboardAndMouse");
-            return asset.controlSchemes[m_KeyboardAndMouseSchemeIndex];
+            if (m_KeyboardandmouseSchemeIndex == -1) m_KeyboardandmouseSchemeIndex = asset.FindControlSchemeIndex("Keyboard and mouse");
+            return asset.controlSchemes[m_KeyboardandmouseSchemeIndex];
         }
     }
     private int m_GamepadSchemeIndex = -1;

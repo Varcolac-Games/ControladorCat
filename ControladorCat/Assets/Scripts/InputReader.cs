@@ -13,6 +13,11 @@ public class InputReader : MonoBehaviour
         playerInput = new Player();
     }
 
+    private void Start()
+    {
+        GetComponent<PlayerInput>().SwitchCurrentControlScheme("Gamepad", Gamepad.current);
+    }
+
     private void OnEnable()
     {
         playerInput.Enable();
