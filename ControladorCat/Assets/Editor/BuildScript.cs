@@ -8,7 +8,7 @@ public class BuildScript
     // Define la escena a incluir en el build. Podrías hacer esto más dinámico si tuvieras múltiples escenas.
     private static string[] GetScenes()
     {
-        return new string[] { "Assets/Scenes/TPControllerPc.unity" };
+        return new string[] { "Assets/Scenes/Damian/TPControllerPc.unity" };
     }
 
     // --- Build para Windows ---
