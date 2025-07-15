@@ -5,17 +5,17 @@ using System.IO; // Necesario para Path.Combine y Directory.CreateDirectory
 
 public class BuildScript
 {
-    // Define la escena a incluir en el build. Podrías hacer esto más dinámico si tuvieras múltiples escenas.
+    // Define la escena a incluir en el build. PodrÃ­as hacer esto mÃ¡s dinÃ¡mico si tuvieras mÃºltiples escenas.
     private static string[] GetScenes()
     {
-        return new string[] { "Assets/Scenes/Test_Integrate.unity" };
+        return new string[] { "Assets/Scenes/TPControllerPc.unity" };
     }
 
     // --- Build para Windows ---
     public static void BuildWindows()
     {
         string buildPath = "Builds/Windows/";
-        // Asegúrate de que la carpeta de destino exista
+        // AsegÃºrate de que la carpeta de destino exista
         Directory.CreateDirectory(buildPath);
 
         string outputPath = Path.Combine(buildPath, "ControladorCat.exe");
@@ -27,19 +27,19 @@ public class BuildScript
     public static void BuildAndroid()
     {
         string buildPath = "Builds/Android/";
-        // Asegúrate de que la carpeta de destino exista
+        // AsegÃºrate de que la carpeta de destino exista
         Directory.CreateDirectory(buildPath);
 
-        // Para Android, la extensión suele ser .apk o .aab (App Bundle)
+        // Para Android, la extensiÃ³n suele ser .apk o .aab (App Bundle)
         // Recomiendo usar .aab para publicaciones en Google Play Store
         string outputPath = Path.Combine(buildPath, "ControladorCat.apk"); // Puedes cambiar a .aab si prefieres
-        // Aquí es crucial que el editor de Unity tenga el módulo de Android instalado y configurado
+        // AquÃ­ es crucial que el editor de Unity tenga el mÃ³dulo de Android instalado y configurado
         // en File -> Build Settings -> Android
         BuildPipeline.BuildPlayer(GetScenes(), outputPath, BuildTarget.Android, BuildOptions.None);
         UnityEngine.Debug.Log($"Build de Android completado: {outputPath}");
     }
 
-    // --- Método unificado para lanzar ambos builds (opcional) ---
+    // --- MÃ©todo unificado para lanzar ambos builds (opcional) ---
     public static void BuildAllPlatforms()
     {
         BuildWindows();
