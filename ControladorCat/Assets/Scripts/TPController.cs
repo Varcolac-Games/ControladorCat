@@ -44,8 +44,8 @@ public class TPController : MonoBehaviour
     private void Update()
     {
         Vector3 inputs = new Vector3(inputReader.Movement.x, 0f, inputReader.Movement.y);
-        Vector3 viewDir = playerTransform.position - new Vector3(Camera.main.transform.position.x, playerTransform.position.y, Camera.main.transform.position.z);
-        orientation.forward = viewDir.normalized;
+        Vector3 viewDir = Vector3.ProjectOnPlane(Camera.main.transform.forward, Vector3.up).normalized;
+        orientation.forward = viewDir;
         inputDir = orientation.forward * inputs.z + orientation.right * inputs.x;
         float moveAmount = inputDir.magnitude;
         anim.SetFloat("Speed", moveAmount);
@@ -58,7 +58,7 @@ public class TPController : MonoBehaviour
 
     private void Movement()
     {
-        if (inputDir != Vector3.zero)
+        if (inputDir.magnitude > 0.1f)
         {
             playerObj.forward = Vector3.Slerp(playerObj.forward, inputDir.normalized, Time.fixedDeltaTime * rotationSpeed);
             Vector3 moveVelocity = inputDir.normalized * speedMovement;
@@ -77,20 +77,11 @@ public class TPController : MonoBehaviour
 
     void CameraRotation()
     {
-        // Aplicar sensibilidad
         xRotation += inputReader.Look.y * lookSensitivity;
         yRotation += inputReader.Look.x * lookSensitivity;
-
-        // Clamp en el eje X (pitch)
         xRotation = Mathf.Clamp(xRotation, clampMin, clampMax);
-
-        // Crear rotación objetivo
         Quaternion targetRotation = Quaternion.Euler(xRotation, yRotation, 0f);
-
-        // Suavizar rotación con Lerp
         currentRotation = Quaternion.Lerp(currentRotation, targetRotation, Time.deltaTime * cameraRotationSmoothness);
-
-        // Aplicar rotación
         cameraFollowTarget.rotation = currentRotation;
     }
 }

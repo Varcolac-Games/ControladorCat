@@ -6167,6 +6167,7 @@ MonoBehaviour:
   cameraFollowTarget: {fileID: 1174692806}
   clampMin: 0
   clampMax: 50
+  lookSensitivity: 0.1
   cameraRotationSmoothness: 5
   anim: {fileID: 553202694}
 --- !u!136 &1680505606
