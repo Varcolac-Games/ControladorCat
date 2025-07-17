@@ -15,18 +15,9 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "LookMouse",
+                    "name": "Look",
                     "type": "Value",
                     "id": "2c5d9122-613f-4375-9c8e-14bfbec4620f",
-                    "expectedControlType": "Vector2",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": true
-                },
-                {
-                    "name": "LookJoystick",
-                    "type": "Value",
-                    "id": "ab4a814d-5b0c-4aa4-8dc8-2f6a517494b0",
                     "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": "",
@@ -62,7 +53,7 @@
                     "path": "<Keyboard>/w",
                     "interactions": "",
                     "processors": "",
-                    "groups": "KeyboardAndMouse",
+                    "groups": "KeyboardAndMouse;Keyboard and mouse",
                     "action": "Move",
                     "isComposite": false,
                     "isPartOfComposite": true
@@ -73,7 +64,7 @@
                     "path": "<Keyboard>/s",
                     "interactions": "",
                     "processors": "",
-                    "groups": "KeyboardAndMouse",
+                    "groups": "KeyboardAndMouse;Keyboard and mouse",
                     "action": "Move",
                     "isComposite": false,
                     "isPartOfComposite": true
@@ -84,7 +75,7 @@
                     "path": "<Keyboard>/a",
                     "interactions": "",
                     "processors": "",
-                    "groups": "KeyboardAndMouse",
+                    "groups": "KeyboardAndMouse;Keyboard and mouse",
                     "action": "Move",
                     "isComposite": false,
                     "isPartOfComposite": true
@@ -95,7 +86,7 @@
                     "path": "<Keyboard>/d",
                     "interactions": "",
                     "processors": "",
-                    "groups": "KeyboardAndMouse",
+                    "groups": "KeyboardAndMouse;Keyboard and mouse",
                     "action": "Move",
                     "isComposite": false,
                     "isPartOfComposite": true
@@ -106,19 +97,19 @@
                     "path": "<Mouse>/delta",
                     "interactions": "",
                     "processors": "",
-                    "groups": "KeyboardAndMouse",
-                    "action": "LookMouse",
+                    "groups": "KeyboardAndMouse;Keyboard and mouse",
+                    "action": "Look",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
-                    "id": "de45dd01-e4fa-4f64-863a-e5baba863b7f",
+                    "id": "bd29f607-d251-4e83-8b16-0f54d9e3abe3",
                     "path": "<Gamepad>/rightStick",
                     "interactions": "",
                     "processors": "",
                     "groups": "Gamepad",
-                    "action": "LookJoystick",
+                    "action": "Look",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

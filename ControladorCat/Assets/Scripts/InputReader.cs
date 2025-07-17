@@ -3,30 +3,20 @@ using UnityEngine.InputSystem;
 
 public class InputReader : MonoBehaviour
 {
-    private Player playerInput;
     private Vector3 movement;
+    private Vector3 look;
 
-    public Vector3 Movement { get => movement; private set { movement = value; } }
+    public Vector3 Movement { get => movement;  set { movement = value; } }
 
-    private void Awake()
+    public Vector3 Look { get => look; set => look = value; }
+
+    public void OnMove(InputValue value)
     {
-        playerInput = new Player();
+        movement = value.Get<Vector2>();
     }
 
-    private void OnEnable()
+    public void OnLook(InputValue value)
     {
-        playerInput.Enable();
+        look = value.Get<Vector2>();
     }
-
-    private void OnDisable()
-    {
-        playerInput.Disable();
-    }
-
-    private void Update()
-    {
-        Vector2 movementInput = playerInput.PlayerMain.Move.ReadValue<Vector2>();
-        Movement = new Vector3(movementInput.x, 0f, movementInput.y);
-    }
-    
 }

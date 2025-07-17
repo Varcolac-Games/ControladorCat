@@ -20,15 +20,15 @@ public class MobileDisableAutoSwitchControls : MonoBehaviour
     [Header("Target")]
     public PlayerInput playerInput;
 
-    void Start()
-    {
-        DisableAutoSwitchControls();
-    }
+    //void Start()
+    //{
+    //    DisableAutoSwitchControls();
+    //}
 
-    void DisableAutoSwitchControls()
-    {
-        playerInput.neverAutoSwitchControlSchemes = true;
-    }
+    //void DisableAutoSwitchControls()
+    //{
+    //    playerInput.neverAutoSwitchControlSchemes = true;
+    //}
 
 #endif
     

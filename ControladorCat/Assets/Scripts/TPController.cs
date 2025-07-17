@@ -10,6 +10,14 @@ public class TPController : MonoBehaviour
     [SerializeField] private float speedMovement;
     [SerializeField] private float rotationSpeed;
 
+    [Header("Camera")]
+    [SerializeField] private Transform cameraFollowTarget;
+    private float xRotation;
+    private float yRotation;
+    [SerializeField] private float clampMin;
+    [SerializeField] private float clampMax;
+    [SerializeField] private float cameraRotationSmoothness = 5f;
+
     [Header("Input References")]
     private InputReader inputReader;
     private Vector3 inputDir;
@@ -32,7 +40,7 @@ public class TPController : MonoBehaviour
 
     private void Update()
     {
-        Vector3 inputs = inputReader.Movement;
+        Vector3 inputs = new Vector3(inputReader.Movement.x, 0f, inputReader.Movement.y);
         Vector3 viewDir = playerTransform.position - new Vector3(Camera.main.transform.position.x, playerTransform.position.y, Camera.main.transform.position.z);
         orientation.forward = viewDir.normalized;
         inputDir = orientation.forward * inputs.z + orientation.right * inputs.x;
@@ -57,5 +65,19 @@ public class TPController : MonoBehaviour
         {
             rbPlayer.velocity = new Vector3(0, rbPlayer.velocity.y, 0);
         }
+    }
+
+    private void LateUpdate()
+    {
+        CameraRotation();
+    }
+
+    void CameraRotation()
+    {
+        xRotation += inputReader.Look.y;
+        yRotation += inputReader.Look.x;
+        xRotation = Mathf.Clamp(xRotation, clampMin, clampMax);
+        Quaternion rotation = Quaternion.Euler(xRotation, yRotation, 0f);
+        cameraFollowTarget.rotation = rotation;
     }
 }
