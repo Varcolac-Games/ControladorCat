@@ -16,7 +16,9 @@ public class TPController : MonoBehaviour
     private float yRotation;
     [SerializeField] private float clampMin;
     [SerializeField] private float clampMax;
-    [SerializeField] private float cameraRotationSmoothness = 5f;
+    [SerializeField] private float lookSensitivity = 0.1f;
+    [SerializeField] private float cameraRotationSmoothness = 3f;
+    private Quaternion currentRotation;
 
     [Header("Input References")]
     private InputReader inputReader;
@@ -36,6 +38,7 @@ public class TPController : MonoBehaviour
     {
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+        currentRotation = cameraFollowTarget.rotation;
     }
 
     private void Update()
@@ -74,10 +77,20 @@ public class TPController : MonoBehaviour
 
     void CameraRotation()
     {
-        xRotation += inputReader.Look.y;
-        yRotation += inputReader.Look.x;
+        // Aplicar sensibilidad
+        xRotation += inputReader.Look.y * lookSensitivity;
+        yRotation += inputReader.Look.x * lookSensitivity;
+
+        // Clamp en el eje X (pitch)
         xRotation = Mathf.Clamp(xRotation, clampMin, clampMax);
-        Quaternion rotation = Quaternion.Euler(xRotation, yRotation, 0f);
-        cameraFollowTarget.rotation = rotation;
+
+        // Crear rotación objetivo
+        Quaternion targetRotation = Quaternion.Euler(xRotation, yRotation, 0f);
+
+        // Suavizar rotación con Lerp
+        currentRotation = Quaternion.Lerp(currentRotation, targetRotation, Time.deltaTime * cameraRotationSmoothness);
+
+        // Aplicar rotación
+        cameraFollowTarget.rotation = currentRotation;
     }
 }
