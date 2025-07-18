@@ -677,9 +677,6 @@ PrefabInstance:
       addedObject: {fileID: 37144526}
     - targetCorrespondingSourceObject: {fileID: 1526554761915109350, guid: 076879464bd682945aa7cd31ae139a36, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 37144525}
-    - targetCorrespondingSourceObject: {fileID: 1526554761915109350, guid: 076879464bd682945aa7cd31ae139a36, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 37144524}
   m_SourcePrefab: {fileID: 100100000, guid: 076879464bd682945aa7cd31ae139a36, type: 3}
 --- !u!4 &37144522 stripped
@@ -713,18 +710,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.35, y: 0.25, z: 0.25}
   m_Center: {x: 0, y: 0.125, z: 0.15}
---- !u!114 &37144525
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 37144523}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: de2686066162c724b9c84380c3221863, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &37144526
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3059,7 +3044,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &439749121
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3124,7 +3109,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 37144525}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: Iso.InteractionManager, Assembly-CSharp
         m_MethodName: Action
         m_Mode: 1
