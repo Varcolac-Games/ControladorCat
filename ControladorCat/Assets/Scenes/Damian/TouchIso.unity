@@ -1692,7 +1692,7 @@ NavMeshAgent:
   m_AutoBraking: 1
   m_AutoRepath: 1
   m_Height: 0.2
-  m_BaseOffset: -0.09
+  m_BaseOffset: -0.083
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
 --- !u!114 &1180560147
@@ -1710,6 +1710,7 @@ MonoBehaviour:
   touchPoint: {fileID: 1647686891}
   agent: {fileID: 0}
   playerObj: {fileID: 1496834046}
+  anim: {fileID: 1496834047}
   rotationSpeed: 5
 --- !u!1 &1248337999
 GameObject:
@@ -2315,6 +2316,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6457827622588659519, guid: ce5ae713262f32a4f84a02fee1f919bc, type: 3}
   m_PrefabInstance: {fileID: 1180560142}
   m_PrefabAsset: {fileID: 0}
+--- !u!95 &1496834047 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 3969029994668005957, guid: ce5ae713262f32a4f84a02fee1f919bc, type: 3}
+  m_PrefabInstance: {fileID: 1180560142}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1647686886
 GameObject:
   m_ObjectHideFlags: 0
@@ -2377,7 +2383,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 0.7
+  orthographic size: 1.5
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
