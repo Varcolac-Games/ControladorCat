@@ -22,6 +22,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
+                },
+                {
+                    "name": "Touch",
+                    "type": "PassThrough",
+                    "id": "1f281284-f602-4870-98ea-e12ea17dcaed",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -110,6 +119,17 @@
                     "processors": "",
                     "groups": "Gamepad",
                     "action": "Look",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "6a323fb3-4ea6-41bc-bff1-3d4191a96d5b",
+                    "path": "<Touchscreen>/primaryTouch/position",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Tocuh",
+                    "action": "Touch",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
